@@ -10,9 +10,9 @@ require "../../vendor/skeleton/skeleton.css"
 require "../scss/screen.scss"
 
 #
-# Canvas rendering
+# TEV stage display (upper canvas)
 #
 
-Canvas = require "./canvas/Canvas.coffee"
+TEVStageDisplay = require "./tevStageDisplay/TEVStageDisplay.coffee"
 
-canvas = new Canvas "tevPreview"
+tevStageDisplay = new TEVStageDisplay "tevPreview"
