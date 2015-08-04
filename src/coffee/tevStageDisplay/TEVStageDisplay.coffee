@@ -11,16 +11,16 @@ drawCheckerBackground = (ctx, width, height, ox, oy, size) ->
 			skip = if i % 2 then 0 else size
 			ctx.rect 2 * j * size + skip, i * size, size, size
 
-	ctx.fillStyle = canvas_utils.rgba .98, .98, .98
+	ctx.fillStyle = canvas_utils.rgba 1, 1, 1
 	ctx.fill()
 
 class TEVStageDisplay extends Canvas
 	constructor: (@canvasId) ->
 		super @canvasId
-		@clearColor = canvas_utils.rgba .9, .9, .9
+		@clearColor = canvas_utils.rgba .95, .95, .95
 
 	draw: () =>
 		super
-		drawCheckerBackground @context, @canvasElement.width, @canvasElement.height, @offsetX, @offsetY, 48
+		drawCheckerBackground @context, @canvasElement.width, @canvasElement.height, @offsetX, @offsetY, 32
 
 module.exports = TEVStageDisplay
