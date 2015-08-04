@@ -10,9 +10,11 @@ require "../../vendor/skeleton/skeleton.css"
 require "../scss/screen.scss"
 
 #
-# TEV stage display (upper canvas)
+# TEV stage/shader display initiation (upper canvas)
 #
 
-TEVStageDisplay = require "./tevStageDisplay/TEVStageDisplay.coffee"
+TEVStageDisplay  = require "./tevStageDisplay/TEVStageDisplay.coffee"
+TEVShaderDisplay = require "./tevShaderDisplay/TEVShaderDisplay.coffee"
 
-tevStageDisplay = new TEVStageDisplay "tevPreview"
+tevStageDisplay  = new TEVStageDisplay "tevPreview"
+tevShaderDisplay = new TEVShaderDisplay "glslPreview"
