@@ -4,9 +4,9 @@ class Canvas
 	constructor: (@canvasId) ->
 		@canvasElement = document.getElementById @canvasId
 		@context = @canvasElement.getContext "2d"
-		@draw()
 		@resize()
 		window.addEventListener 'resize', @resize, false
+		requestAnimationFrame @draw
 
 	draw: () =>
 		requestAnimationFrame @draw

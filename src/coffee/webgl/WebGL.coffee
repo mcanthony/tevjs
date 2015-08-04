@@ -5,9 +5,10 @@ class WebGL
 
 		@initGeometry()
 
-		@draw()
 		@resize()
 		window.addEventListener 'resize', @resize, false
+
+		requestAnimationFrame @draw
 
 	initGeometry: () =>
 		# Nothing, leave to child classes
@@ -20,6 +21,6 @@ class WebGL
 	resize: () =>
 		@canvasElement.width = @canvasElement.clientWidth
 		@canvasElement.height = @canvasElement.clientHeight
-		@gl.viewport 0, 0, @gl.drawingBufferWidth, @gl.drawingBufferHeight
+		@gl.viewport 0, 0, @canvasElement.clientWidth, @canvasElement.clientHeight
 
 module.exports = WebGL
