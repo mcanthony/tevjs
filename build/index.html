@@ -8,8 +8,87 @@
 	<div class="container tev-fullContainer">
 		<div class="row">
 			<div class="one-half column">
-				<div class="tev-util-absolute-full">
-					<textarea id="tevScript" class="tev-util-relative-full"></textarea>
+				<div class="tev-util-absolute-full" style="overflow-y: scroll">
+					<div id="stages">
+						<div class="tev-stage">
+							<div class="tev-stage-header">Stage 1 <small class="tev-monospace">(GX_TEVSTAGE0)</small></div>
+							<div class="row tev-stage-option">
+								<div class="four columns">
+									<label for="stage0_Operation">Operation</label>
+									<select class="u-full-width tev-monospace" id="stage0_Operation">
+										<option value="GX_TEV_ADD">A * (1 - C) + B*C + D</option>
+									</select>
+								</div>
+								<div class="two columns">
+									<label for="stage0_Bias">Bias</label>
+									<select class="u-full-width tev-monospace" id="stage0_Bias">
+										<option value="GX_TB_ZERO">None</option>
+										<option value="GX_TB_ADDHALF">+ 0.5</option>
+										<option value="GX_TB_SUBHALF">- 0.5</option>
+									</select>
+								</div>
+								<div class="two columns">
+									<label for="stage0_Scale">Scale</label>
+									<select class="u-full-width tev-monospace" id="stage0_Scale">
+										<option value="GX_CS_SCALE_1">None</option>
+										<option value="GX_CS_SCALE_2">x 2</option>
+										<option value="GX_CS_SCALE_4">x 4</option>
+										<option value="GX_CS_DIVIDE_2">/ 2</option>
+									</select>
+								</div>
+								<div class="two columns">
+									<label for="stage0_Clamp">Clamp</label>
+									<select class="u-full-width tev-monospace" id="stage0_Clamp">
+										<option value="GX_FALSE">No</option>
+										<option value="GX_TRUE">Yes</option>
+									</select>
+								</div>
+								<div class="two columns">
+									<label for="stage0_Regid">TEV Source</label>
+									<select class="u-full-width tev-monospace" id="stage0_Regid">
+										<option value="GX_TEVPREV">Prev</option>
+										<option value="GX_TEVREG0">Reg 0</option>
+										<option value="GX_TEVREG1">Reg 1</option>
+										<option value="GX_TEVREG2">Reg 2</option>
+									</select>
+								</div>
+							</div>
+							<div class="row tev-stage-parameters">
+								<div class="three columns">
+									<center><label for="stage0_Operation">A</label></center>
+									<select class="u-full-width tev-monospace" id="stage0_Operation">
+										<option value="GX_CC_CPREV">Prev (Color)</option>
+										<option value="GX_CC_APREV">Prev (Alpha)</option>
+										<option value="GX_CC_C0">Reg 0 (Color)</option>
+									</select>
+								</div>
+								<div class="three columns">
+									<center><label for="stage0_Operation">B</label></center>
+									<select class="u-full-width tev-monospace" id="stage0_Operation">
+										<option value="GX_CC_CPREV">Prev (Color)</option>
+										<option value="GX_CC_APREV">Prev (Alpha)</option>
+										<option value="GX_CC_C0">Reg 0 (Color)</option>
+									</select>
+								</div>
+								<div class="three columns">
+									<center><label for="stage0_Operation">C</label></center>
+									<select class="u-full-width tev-monospace" id="stage0_Operation">
+										<option value="GX_CC_CPREV">Prev (Color)</option>
+										<option value="GX_CC_APREV">Prev (Alpha)</option>
+										<option value="GX_CC_C0">Reg 0 (Color)</option>
+									</select>
+								</div>
+								<div class="three columns">
+									<center><label for="stage0_Operation">D</label></center>
+									<select class="u-full-width tev-monospace" id="stage0_Operation">
+										<option value="GX_CC_CPREV">Prev (Color)</option>
+										<option value="GX_CC_APREV">Prev (Alpha)</option>
+										<option value="GX_CC_C0">Reg 0 (Color)</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="one-half column">

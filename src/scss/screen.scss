@@ -48,4 +48,19 @@ div.tev-fullContainer {
 	z-index: 100;
 }
 
+.tev-monospace {
+	font-family: monospace;
+}
+
+.tev-stage {
+	padding: 1em;
+	border-bottom: 1px solid #ddd;
+
+	.tev-stage-header {
+		font-size: 1.5em;
+		font-weight: bold;
+		padding-bottom: 0.5em;
+	}
+}
+
 canvas { border: 1px solid #eee; }

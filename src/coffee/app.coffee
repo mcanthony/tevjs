@@ -4,7 +4,7 @@
 
 # Skeleton CSS
 require "../../vendor/skeleton/normalize.css"
-require "../../vendor/skeleton/skeleton.css"
+require "../../vendor/skeleton/skeleton.scss"
 
 # Our stylesheet
 require "../scss/screen.scss"
