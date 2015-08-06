@@ -9,7 +9,7 @@ class Canvas
 		requestAnimationFrame @draw
 
 	draw: () =>
-		requestAnimationFrame @draw
+		#requestAnimationFrame @draw
 		@context.clearRect 0, 0, @canvasElement.width, @canvasElement.height
 
 		# Clear screen with custom color if there is one

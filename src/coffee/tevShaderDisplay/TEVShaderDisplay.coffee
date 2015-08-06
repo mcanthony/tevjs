@@ -1,5 +1,10 @@
-WebGL = require "../webgl/WebGL.coffee"
-Shader = require "../webgl/Shader.coffee"
+THREE = require "../../../vendor/threejs/three.js"
+
+defaultVertex = """
+void main() {
+	gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+"""
 
 testShader = """
 void main() {
@@ -7,23 +12,51 @@ void main() {
 }
 """
 
-class TEVShaderDisplay extends WebGL
+class TEVShaderDisplay
 	constructor: (@canvasId) ->
-		super @canvasId
-		@shader = new Shader @gl
-		@shader.setVertex Shader::defaultVertex
-		@shader.setFragment testShader
-		@shader.compile()
-		@shader.use()
+		# Get canvas
+		@canvas = document.getElementById @canvasId
+		@container = @canvas.parentElement
 
-	initGeometry: () =>
-		buffer = @gl.createBuffer()
-		tris = new Float32Array [-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]
-		@gl.bindBuffer @gl.ARRAY_BUFFER, buffer
-		@gl.bufferData @gl.ARRAY_BUFFER, tris, @gl.STATIC_DRAW
+		@canvas.width = @container.clientWidth
+		@canvas.height = @container.clientHeight
+
+		# Init THREE.js stuff
+		@scene = new THREE.Scene()
+		@camera = new THREE.PerspectiveCamera 75, @canvas.width / @canvas.height, 0.1, 1000
+		@renderer = new THREE.WebGLRenderer { canvas: @canvas }
+
+		# Init basic geometry (todo: support user models via OBJloader)
+		geometry = new THREE.BoxGeometry 1, 1, 1
+		@shader = new THREE.ShaderMaterial {
+			vertexShader: defaultVertex
+			fragmentShader: testShader
+		}
+
+		@cube = new THREE.Mesh geometry, @shader
+
+		@scene.add @cube
+		@camera.position.z = 2
+		@cube.rotation.x = 0.5
+
+		# Handle resizing
+		@resize()
+		window.addEventListener 'resize', @resize, false
+
+		# Start rendering
+		@draw()
+		return
 
 	draw: () =>
-		super
-		@gl.drawArrays @gl.TRIANGLES, 0, 6
+		requestAnimationFrame @draw
+		@renderer.render @scene, @camera
+		@cube.rotation.y += 0.01
+		return
+
+	resize: () =>
+		@camera.aspect = @container.clientWidth / @container.clientHeight
+		@camera.updateProjectionMatrix()
+		@renderer.setSize @container.clientWidth, @container.clientHeight
+		return
 
 module.exports = TEVShaderDisplay
