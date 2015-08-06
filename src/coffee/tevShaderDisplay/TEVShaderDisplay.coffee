@@ -1,4 +1,5 @@
 THREE = require "../../../vendor/threejs/three.js"
+THREE.OrbitControls = require "../../../vendor/threejs/OrbitControls.js"
 
 defaultVertex = """
 void main() {
@@ -37,7 +38,8 @@ class TEVShaderDisplay
 
 		@scene.add @cube
 		@camera.position.z = 2
-		@cube.rotation.x = 0.5
+
+		@controls = new THREE.OrbitControls @camera, @container
 
 		# Handle resizing
 		@resize()
@@ -50,7 +52,7 @@ class TEVShaderDisplay
 	draw: () =>
 		requestAnimationFrame @draw
 		@renderer.render @scene, @camera
-		@cube.rotation.y += 0.01
+		@controls.update()
 		return
 
 	resize: () =>

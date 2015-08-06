@@ -12,7 +12,7 @@ module.exports = {
 		publicPath: "/",
 		filename: "app.js"
 	},
-	resolve: [".coffee"],
+	resolve: [".coffee", ".scss"],
 	module: {
 		loaders: [{
 			test: /\.coffee$/,
