@@ -14,6 +14,12 @@ module.exports = {
 	},
 	resolve: [".coffee", ".scss"],
 	module: {
+		preLoaders: [{
+			test: /\.tag$/,
+			exclude: /node_modules/,
+			loader: "riotjs-loader",
+			query: { type: "none" }
+		}],
 		loaders: [{
 			test: /\.coffee$/,
 			loader: "coffee-loader",
@@ -36,6 +42,9 @@ module.exports = {
 		}]
 	},
 	plugins: [
-		new webpack.NoErrorsPlugin()
+		new webpack.NoErrorsPlugin(),
+		new webpack.ProvidePlugin({
+			riot: "riot"
+		})
 	]
 };

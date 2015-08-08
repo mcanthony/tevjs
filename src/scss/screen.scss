@@ -62,6 +62,16 @@ div.tev-fullContainer {
 		font-weight: bold;
 		padding-bottom: 0.5em;
 	}
+
+	.tev-subline {
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 0.8em;
+		letter-spacing: 0.3em;
+		border-top: 1px dotted #ddd;
+		line-height: 3em;
+	}
 }
 
 canvas { border: 1px solid #eee; }

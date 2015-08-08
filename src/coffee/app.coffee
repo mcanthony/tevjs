@@ -18,3 +18,10 @@ TEVShaderDisplay = require "./tevShaderDisplay/TEVShaderDisplay.coffee"
 
 tevStageDisplay  = new TEVStageDisplay "tevPreview"
 tevShaderDisplay = new TEVShaderDisplay "glslPreview"
+
+#
+# Editor
+#
+
+require "../tag/stage.tag"
+riot.mount "*"
